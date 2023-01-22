@@ -19,7 +19,7 @@ export const Container = styled.div`
   );
   backdrop-filter: blur(25px);
   border-radius: 30px;
-  @media (max-width: 391px) {
+  @media (max-width: 450px) {
     border-radius: 0;
   }
 `;
