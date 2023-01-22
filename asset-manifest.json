@@ -1,13 +1,28 @@
 {
   "files": {
-    "main.css": "/wise-weather/static/css/main.7acaea2f.css",
-    "main.js": "/wise-weather/static/js/main.07d3183d.js",
+    "main.css": "/wise-weather/static/css/main.280e262d.css",
+    "main.js": "/wise-weather/static/js/main.9c78a5b3.js",
+    "static/js/487.8a5145a1.chunk.js": "/wise-weather/static/js/487.8a5145a1.chunk.js",
+    "static/js/544.9b37ce78.chunk.js": "/wise-weather/static/js/544.9b37ce78.chunk.js",
+    "static/js/705.81d9a745.chunk.js": "/wise-weather/static/js/705.81d9a745.chunk.js",
+    "static/js/93.24d282ef.chunk.js": "/wise-weather/static/js/93.24d282ef.chunk.js",
+    "static/css/372.c3842cbf.chunk.css": "/wise-weather/static/css/372.c3842cbf.chunk.css",
+    "static/js/372.0c3e4788.chunk.js": "/wise-weather/static/js/372.0c3e4788.chunk.js",
+    "static/js/227.4137fd4c.chunk.js": "/wise-weather/static/js/227.4137fd4c.chunk.js",
+    "static/media/weather-bg.png": "/wise-weather/static/media/weather-bg.f6c4fa82fd7ef24cee7b.png",
     "index.html": "/wise-weather/index.html",
-    "main.7acaea2f.css.map": "/wise-weather/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/wise-weather/static/js/main.07d3183d.js.map"
+    "main.280e262d.css.map": "/wise-weather/static/css/main.280e262d.css.map",
+    "main.9c78a5b3.js.map": "/wise-weather/static/js/main.9c78a5b3.js.map",
+    "487.8a5145a1.chunk.js.map": "/wise-weather/static/js/487.8a5145a1.chunk.js.map",
+    "544.9b37ce78.chunk.js.map": "/wise-weather/static/js/544.9b37ce78.chunk.js.map",
+    "705.81d9a745.chunk.js.map": "/wise-weather/static/js/705.81d9a745.chunk.js.map",
+    "93.24d282ef.chunk.js.map": "/wise-weather/static/js/93.24d282ef.chunk.js.map",
+    "372.c3842cbf.chunk.css.map": "/wise-weather/static/css/372.c3842cbf.chunk.css.map",
+    "372.0c3e4788.chunk.js.map": "/wise-weather/static/js/372.0c3e4788.chunk.js.map",
+    "227.4137fd4c.chunk.js.map": "/wise-weather/static/js/227.4137fd4c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.280e262d.css",
+    "static/js/main.9c78a5b3.js"
   ]
 }
