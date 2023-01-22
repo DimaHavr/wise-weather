@@ -12,15 +12,11 @@ import {
   TextItem,
   WindIcon,
   TempCelsiusIcon,
-  BarometerIcon,
-  WindSlapIcon,
   RaindropsIcon,
   HumidityIcon,
-  SunIcon,
   Container,
   ContentContainer,
   DetailsContainer,
-  DetailsTitle,
   Title,
 } from './ThreeDaysWeather.styled';
 
