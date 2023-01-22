@@ -19,7 +19,7 @@ export const Container = styled.div`
   );
   backdrop-filter: blur(25px);
   border-radius: 30px;
-  @media (max-width: 391px) {
+  @media (max-width: 450px) {
     border-radius: 0;
   }
 `;
@@ -52,6 +52,9 @@ export const DetailsTitle = styled.h3`
   position: absolute;
   top: 60%;
   width: 100%;
+  @media (max-width: 350px) {
+    top: 55%;
+  }
 
   &::before {
     content: '';
