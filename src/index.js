@@ -7,7 +7,7 @@ import 'normalize.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/UaWise-Weather">
+    <BrowserRouter basename="/wise-weather">
       <App />
     </BrowserRouter>
   </React.StrictMode>

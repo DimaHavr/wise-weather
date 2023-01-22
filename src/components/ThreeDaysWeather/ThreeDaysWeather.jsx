@@ -52,13 +52,10 @@ const ThreeDaysWeather = () => {
     setCurrentCity([]);
     setLocation([]);
   };
-  //   const [currentIndex, setCurrentIndex] = useState();
-  //   function handleChange(index) {
-  //     setCurrentIndex(index);
-  //   }
+
   const renderSlides = currentCity.map(({ day, date }, index) => (
-    <Box display="flex" justifyContent="center" marginBottom="40px">
-      <Container key={index}>
+    <Box key={index} display="flex" justifyContent="center" marginBottom="40px">
+      <Container>
         <ContentContainer>
           <Title>{name}</Title>
           <Box display="flex">
