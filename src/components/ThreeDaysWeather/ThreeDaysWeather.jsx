@@ -10,17 +10,17 @@ import { Carousel } from 'react-responsive-carousel';
 import {
   TimeIcon,
   TextItem,
-  //   WindIcon,
-  //   TempCelsiusIcon,
-  //   BarometerIcon,
-  //   WindSlapIcon,
-  //   RaindropsIcon,
-  //   HumidityIcon,
-  //   SunIcon,
+  WindIcon,
+  TempCelsiusIcon,
+  BarometerIcon,
+  WindSlapIcon,
+  RaindropsIcon,
+  HumidityIcon,
+  SunIcon,
   Container,
   ContentContainer,
-  //   DetailsContainer,
-  //   DetailsTitle,
+  DetailsContainer,
+  DetailsTitle,
   Title,
 } from './ThreeDaysWeather.styled';
 
@@ -53,23 +53,60 @@ const ThreeDaysWeather = () => {
     setLocation([]);
   };
 
-  const renderSlides = currentCity.map(({ day, date }, index) => (
-    <Box key={index} display="flex" justifyContent="center" marginBottom="40px">
-      <Container>
-        <ContentContainer>
-          <Title>{name}</Title>
-          <Box display="flex">
-            <img src={day.condition.icon} alt="" />
-            <p>{day.mintemp_c}</p>
+  const renderSlides = currentCity.map(({ day, date }, index) => {
+    const {
+      condition,
+      mintemp_c,
+      maxtemp_c,
+      maxwind_kph,
+      avghumidity,
+      totalprecip_mm,
+    } = day;
+    return (
+      <Box
+        key={index}
+        display="flex"
+        justifyContent="center"
+        marginBottom="40px"
+      >
+        <Container>
+          <ContentContainer>
+            <Title>{name}</Title>
+            <TextItem>
+              <TimeIcon /> {date}
+            </TextItem>
+            <Box>
+              <img src={condition.icon} alt="" />
+              <TextItem>{condition.text}</TextItem>
+            </Box>
+          </ContentContainer>
+          <Box as="div" display="flex" style={{ gap: '15px' }}>
+            <TextItem>
+              Min: {mintemp_c}
+              <TempCelsiusIcon />
+            </TextItem>
+            <TextItem>
+              Max: {maxtemp_c}
+              <TempCelsiusIcon />
+            </TextItem>
           </Box>
-          <TextItem>{day.condition.text}</TextItem>
-          <TextItem>
-            <TimeIcon /> {date}
-          </TextItem>
-        </ContentContainer>
-      </Container>
-    </Box>
-  ));
+          <DetailsContainer>
+            <TextItem>
+              <WindIcon /> max: {maxwind_kph}k/h
+            </TextItem>
+            <TextItem>
+              <RaindropsIcon />
+              {totalprecip_mm}mm
+            </TextItem>
+            <TextItem>
+              <HumidityIcon />
+              {avghumidity}%
+            </TextItem>
+          </DetailsContainer>
+        </Container>
+      </Box>
+    );
+  });
   return (
     <Box as="div">
       <SearchBox onSubmit={handleInputSubmit} />

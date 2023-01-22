@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 448px;
   height: 460px;
   background: linear-gradient(
@@ -26,7 +26,7 @@ export const Container = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
-
+  cursor: pointer;
   gap: 10px;
   align-items: center;
   justify-content: center;
@@ -38,6 +38,7 @@ export const DetailsContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  overflow: hidden;
 `;
 
 export const Title = styled.h2`

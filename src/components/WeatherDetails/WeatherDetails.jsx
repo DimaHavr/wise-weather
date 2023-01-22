@@ -4,6 +4,7 @@ import { Tab, Tabs } from '@mui/material';
 import Box from 'components/Box';
 import RealTimeWeather from 'components/RealTimeWeather';
 import ThreeDaysWeather from 'components/ThreeDaysWeather';
+import HourlyWeather from 'components/HourlyWeather';
 
 const WeatherDetails = () => {
   const [value, setValue] = useState(0);
@@ -68,14 +69,14 @@ const WeatherDetails = () => {
             style={{
               color: 'white',
             }}
-            label="Three days"
+            label="24h weather"
             {...a11yProps(1)}
           />
           <Tab
             style={{
               color: 'white',
             }}
-            label="Rope access"
+            label="Three days"
             {...a11yProps(2)}
           />
         </Tabs>
@@ -84,9 +85,11 @@ const WeatherDetails = () => {
         <RealTimeWeather />
       </TabPanel>
       <TabPanel value={value} index={1}>
+        <HourlyWeather />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
         <ThreeDaysWeather />
       </TabPanel>
-      <TabPanel value={value} index={2}></TabPanel>
     </Box>
   );
 };

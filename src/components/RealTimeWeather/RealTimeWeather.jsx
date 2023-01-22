@@ -70,6 +70,9 @@ const RealTimeWeather = () => {
           <Container>
             <ContentContainer>
               <Title>{name}</Title>
+              <TextItem>
+                <TimeIcon /> {localtime}
+              </TextItem>
               <Box display="flex">
                 <img src={condition.icon} alt="" />
                 <TextItem>
@@ -77,9 +80,6 @@ const RealTimeWeather = () => {
                 </TextItem>
               </Box>
               <TextItem>{condition.text}</TextItem>
-              <TextItem>
-                <TimeIcon /> {localtime}
-              </TextItem>
             </ContentContainer>
             <DetailsTitle>Details</DetailsTitle>
             <DetailsContainer>

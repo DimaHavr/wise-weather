@@ -13,12 +13,15 @@ export const Container = styled.div`
   width: 448px;
   height: 460px;
   background: linear-gradient(
-    143.98deg,
-    rgba(255, 255, 255, 0.11) 0%,
-    rgba(255, 255, 255, 0.22) 100%
+    198deg,
+    rgb(255 255 255 / 8%) 0%,
+    rgb(255 255 255 / 12%) 100%
   );
   backdrop-filter: blur(25px);
   border-radius: 30px;
+  @media (max-width: 391px) {
+    border-radius: 0;
+  }
 `;
 
 export const ContentContainer = styled.div`
