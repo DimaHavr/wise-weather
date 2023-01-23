@@ -44,8 +44,9 @@ const WeatherDetails = () => {
   }
 
   return (
-    <Box as="main">
+    <Box>
       <Box
+        as="header"
         sx={{
           borderBottom: 1,
           borderColor: 'divider',
@@ -86,15 +87,17 @@ const WeatherDetails = () => {
         </Tabs>
       </Box>
       <Suspense fallback={<Loader />}>
-        <TabPanel value={value} index={0}>
-          <RealTimeWeather />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <HourlyWeather />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <ThreeDaysWeather />
-        </TabPanel>
+        <Box as="main">
+          <TabPanel value={value} index={0}>
+            <RealTimeWeather />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <HourlyWeather />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <ThreeDaysWeather />
+          </TabPanel>
+        </Box>
       </Suspense>
     </Box>
   );

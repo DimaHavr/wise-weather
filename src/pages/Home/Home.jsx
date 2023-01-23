@@ -6,7 +6,7 @@ const WeatherDetails = lazy(() => import('../../components/WeatherDetails'));
 
 const Home = () => {
   return (
-    <Box as="main">
+    <Box>
       <Suspense fallback={<Loader />}>
         <WeatherDetails />
       </Suspense>

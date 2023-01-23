@@ -79,7 +79,7 @@ const ThreeDaysWeather = () => {
             <TextItem>
               <TimeIcon /> {date}
             </TextItem>
-            <Box>
+            <Box display="flex" flexDirection="column" alignItems="center">
               <img src={condition.icon} alt="" />
               <TextItem>{condition.text}</TextItem>
             </Box>

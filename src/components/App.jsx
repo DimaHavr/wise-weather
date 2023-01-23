@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Box from './Box';
 import Loader from './Loader';
-import 'modern-normalize/modern-normalize.css';
+
 const Home = lazy(() => import('../pages/Home/Home'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
