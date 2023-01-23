@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwise_weather=self.webpackChunkwise_weather||[]).push([[93],{3093:function(e,t,s){s.r(t),s.d(t,{default:function(){return a}});var n=s(4476),r=s(1087),i=s(184),a=function(){return(0,i.jsxs)(n.Z,{display:"flex",flexDirection:"column",alignItems:"center",children:[(0,i.jsx)("h2",{children:"Not Found Page"}),(0,i.jsx)("img",{src:"https://games.24tv.ua/resources/photos/news/202212/2222579.jpg",alt:"pika face",width:"400",height:"200"}),(0,i.jsx)(r.rU,{to:"/",children:"wise-weather"})]})}}}]);
+//# sourceMappingURL=93.220763bb.chunk.js.map
