@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import { Notify } from 'notiflix';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchWeather } from 'services/WeatherAPI';
@@ -6,6 +6,7 @@ import Box from 'components/Box';
 import SearchBox from 'components/SearchBox';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import Loader from 'components/Loader';
 
 import {
   TimeIcon,
@@ -23,18 +24,25 @@ import {
 const ThreeDaysWeather = () => {
   const [location, setLocation] = useState([]);
   const [currentCity, setCurrentCity] = useState([]);
+  const [preLoader, setPreLoader] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const cityName = searchParams.get('query') ?? '';
   const { name } = location;
 
   useEffect(() => {
     const getFetchWeather = async () => {
+      setPreLoader(true);
       try {
         const data = await fetchWeather(cityName);
         setLocation(data.location);
         setCurrentCity(data.forecast.forecastday);
+        setPreLoader(false);
       } catch (error) {
         console.log(error);
+        Notify.failure(
+          'Sorry, there are no city matching your search query. Please try again.'
+        );
+        setPreLoader(false);
       }
     };
     if (!cityName) {
@@ -106,13 +114,14 @@ const ThreeDaysWeather = () => {
   return (
     <Box as="div">
       <SearchBox onSubmit={handleInputSubmit} />
+      {preLoader && <Loader />}
       {name && (
         <Carousel
           showThumbs={false}
           emulateTouch={true}
           swipeable={true}
           showStatus={false}
-          showArrows={false}
+          showArrows={true}
         >
           {renderSlides}
         </Carousel>

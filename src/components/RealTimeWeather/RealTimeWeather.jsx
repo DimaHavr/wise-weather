@@ -1,9 +1,11 @@
-// import PropTypes from 'prop-types';
+import { Notify } from 'notiflix';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchWeather } from 'services/WeatherAPI';
 import Box from 'components/Box';
 import SearchBox from 'components/SearchBox';
+import Loader from 'components/Loader';
+
 import {
   TimeIcon,
   TextItem,
@@ -16,13 +18,13 @@ import {
   Container,
   ContentContainer,
   DetailsContainer,
-  DetailsTitle,
   Title,
 } from './RealTimeWeather.styled';
 
 const RealTimeWeather = () => {
   const [location, setLocation] = useState([]);
   const [currentCity, setCurrentCity] = useState([]);
+  const [preLoader, setPreLoader] = useState(false);
   const { name, localtime } = location;
   const [searchParams, setSearchParams] = useSearchParams();
   const cityName = searchParams.get('query') ?? '';
@@ -40,12 +42,18 @@ const RealTimeWeather = () => {
 
   useEffect(() => {
     const getFetchWeather = async () => {
+      setPreLoader(true);
       try {
         const data = await fetchWeather(cityName);
         setLocation(data.location);
         setCurrentCity(data.current);
+        setPreLoader(false);
       } catch (error) {
         console.log(error);
+        Notify.failure(
+          'Sorry, there are no city matching your search query. Please try again.'
+        );
+        setPreLoader(false);
       }
     };
     if (!cityName) {
@@ -63,6 +71,7 @@ const RealTimeWeather = () => {
   return (
     <Box as="div">
       <SearchBox onSubmit={handleInputSubmit} />
+      {preLoader && <Loader />}
       {name && (
         <Box display="flex" justifyContent="center" paddingBottom="30px">
           <Container>
@@ -79,7 +88,6 @@ const RealTimeWeather = () => {
               </Box>
               <TextItem>{condition.text}</TextItem>
             </ContentContainer>
-            <DetailsTitle>Details</DetailsTitle>
             <DetailsContainer>
               <TextItem>
                 <WindIcon /> {wind_kph}k/h

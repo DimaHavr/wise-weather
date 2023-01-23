@@ -67,6 +67,7 @@ export const TimeIcon = styled(IoMdTime)`
   width: 30px;
   height: 30px;
 `;
+
 export const WindIcon = styled(GiWindsock)`
   width: 30px;
   height: 30px;

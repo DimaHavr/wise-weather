@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Wrapper, Input, Button } from './SearchBox.styled';
+import { Wrapper, Input, Button, SearchIcon } from './SearchBox.styled';
 import { Notify } from 'notiflix';
 
 export const SearchBox = ({ onSubmit }) => {
@@ -33,7 +33,9 @@ export const SearchBox = ({ onSubmit }) => {
         value={cityName}
         onChange={onChangeInput}
       />
-      <Button type="submit">Submit</Button>
+      <Button type="submit">
+        <SearchIcon />
+      </Button>
     </Wrapper>
   );
 };

@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import { Notify } from 'notiflix';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchOneDayWeather } from 'services/WeatherAPI';
@@ -6,6 +6,7 @@ import Box from 'components/Box';
 import SearchBox from 'components/SearchBox';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import Loader from 'components/Loader';
 
 import {
   TimeIcon,
@@ -25,18 +26,25 @@ import {
 const HourlyWeather = () => {
   const [location, setLocation] = useState([]);
   const [currentCity, setCurrentCity] = useState([]);
+  const [preLoader, setPreLoader] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const cityName = searchParams.get('query') ?? '';
   const { name } = location;
 
   useEffect(() => {
     const getFetchWeather = async () => {
+      setPreLoader(true);
       try {
         const data = await fetchOneDayWeather(cityName);
         setLocation(data.location);
         setCurrentCity(data.forecast.forecastday);
+        setPreLoader(false);
       } catch (error) {
         console.log(error);
+        Notify.failure(
+          'Sorry, there are no city matching your search query. Please try again.'
+        );
+        setPreLoader(false);
       }
     };
     if (!cityName) {
@@ -63,7 +71,6 @@ const HourlyWeather = () => {
         uv,
         feelslike_c,
       }) => {
-        console.log(time.slice(11, 16));
         return (
           <Box
             key={index}
@@ -74,7 +81,6 @@ const HourlyWeather = () => {
             <Container>
               <ContentContainer>
                 <Title>{name}</Title>
-
                 <ContentContainer>
                   <TextItem>
                     <TimeIcon /> {time}
@@ -86,7 +92,6 @@ const HourlyWeather = () => {
                       <TempCelsiusIcon />
                     </TextItem>
                   </Box>
-                  {/* <TextItem>{condition.text}</TextItem> */}
                 </ContentContainer>
                 <DetailsContainer>
                   <TextItem>
@@ -123,6 +128,7 @@ const HourlyWeather = () => {
   return (
     <Box as="div">
       <SearchBox onSubmit={handleInputSubmit} />
+      {preLoader && <Loader />}
       {name && (
         <Carousel
           showThumbs={false}
@@ -130,7 +136,7 @@ const HourlyWeather = () => {
           swipeable={true}
           showStatus={false}
           showIndicators={false}
-          showArrows={false}
+          showArrows={true}
         >
           {renderSlides}
         </Carousel>
