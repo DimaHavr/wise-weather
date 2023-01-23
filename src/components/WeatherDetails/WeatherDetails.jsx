@@ -1,10 +1,14 @@
-// import PropTypes from 'prop-types';
+import { Suspense, lazy } from 'react';
 import { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
 import Box from 'components/Box';
-import RealTimeWeather from 'components/RealTimeWeather';
-import ThreeDaysWeather from 'components/ThreeDaysWeather';
-import HourlyWeather from 'components/HourlyWeather';
+import Loader from 'components/Loader';
+
+const HourlyWeather = lazy(() => import('../../components/HourlyWeather'));
+const ThreeDaysWeather = lazy(() =>
+  import('../../components/ThreeDaysWeather')
+);
+const RealTimeWeather = lazy(() => import('../../components/RealTimeWeather'));
 
 const WeatherDetails = () => {
   const [value, setValue] = useState(0);
@@ -81,15 +85,17 @@ const WeatherDetails = () => {
           />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        <RealTimeWeather />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <HourlyWeather />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <ThreeDaysWeather />
-      </TabPanel>
+      <Suspense fallback={<Loader />}>
+        <TabPanel value={value} index={0}>
+          <RealTimeWeather />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <HourlyWeather />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <ThreeDaysWeather />
+        </TabPanel>
+      </Suspense>
     </Box>
   );
 };

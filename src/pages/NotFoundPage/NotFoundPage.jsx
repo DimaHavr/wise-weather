@@ -11,7 +11,7 @@ const NotFoundPage = () => {
         width="400"
         height="200"
       />
-      <Link to="/">Home</Link>
+      <Link to="/">wise-weather</Link>
     </Box>
   );
 };

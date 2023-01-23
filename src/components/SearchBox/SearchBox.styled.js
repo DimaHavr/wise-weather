@@ -38,7 +38,7 @@ export const Button = styled.button`
   background: none;
   color: rgba(255, 255, 255, 0.621);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  border: none;
   @keyframes btn-animation {
     0% {
       transform: scale(1.05);
