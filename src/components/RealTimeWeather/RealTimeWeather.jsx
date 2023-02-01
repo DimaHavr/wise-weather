@@ -1,9 +1,7 @@
 import { Notify } from 'notiflix';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { fetchWeather } from 'services/WeatherAPI';
 import Box from 'components/Box';
-import SearchBox from 'components/SearchBox';
 import Loader from 'components/Loader';
 
 import {
@@ -21,14 +19,11 @@ import {
   Title,
 } from './RealTimeWeather.styled';
 
-const RealTimeWeather = () => {
-  const [location, setLocation] = useState([]);
-  const [currentCity, setCurrentCity] = useState([]);
+const RealTimeWeather = ({ query }) => {
+  const [cityName, setCityName] = useState([]);
+  const [forecastArr, setForecastArr] = useState([]);
   const [preLoader, setPreLoader] = useState(false);
-  const { name, localtime } = location;
-  const [searchParams, setSearchParams] = useSearchParams();
-  const cityName = searchParams.get('query') ?? '';
-
+  const { name, localtime } = cityName;
   const {
     condition,
     wind_kph,
@@ -38,15 +33,15 @@ const RealTimeWeather = () => {
     uv,
     humidity,
     feelslike_c,
-  } = currentCity;
+  } = forecastArr;
 
   useEffect(() => {
     const getFetchWeather = async () => {
       setPreLoader(true);
       try {
-        const data = await fetchWeather(cityName);
-        setLocation(data.location);
-        setCurrentCity(data.current);
+        const data = await fetchWeather(query);
+        setCityName(data.location);
+        setForecastArr(data.current);
         setPreLoader(false);
       } catch (error) {
         console.log(error);
@@ -56,21 +51,14 @@ const RealTimeWeather = () => {
         setPreLoader(false);
       }
     };
-    if (!cityName) {
+    if (!query) {
       return;
     }
     getFetchWeather();
-  }, [cityName]);
-
-  const handleInputSubmit = value => {
-    setSearchParams(value !== '' ? { query: value } : '');
-    setCurrentCity([]);
-    setLocation([]);
-  };
+  }, [query]);
 
   return (
     <Box as="div">
-      <SearchBox onSubmit={handleInputSubmit} />
       {preLoader && <Loader />}
       {name && (
         <Box display="flex" justifyContent="center" paddingBottom="30px">

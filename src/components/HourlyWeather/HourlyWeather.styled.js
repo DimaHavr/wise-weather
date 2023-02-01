@@ -26,7 +26,7 @@ export const Container = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
-  cursor: pointer;
+  cursor: grab;
   gap: 10px;
   align-items: center;
   justify-content: center;

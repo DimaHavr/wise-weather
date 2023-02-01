@@ -7,6 +7,7 @@ import { BsFillSunFill } from 'react-icons/bs';
 
 export const Container = styled.div`
   display: flex;
+  cursor: grab;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;

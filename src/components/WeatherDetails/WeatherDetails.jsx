@@ -1,9 +1,10 @@
 import { Suspense, lazy } from 'react';
 import { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
+import { useSearchParams } from 'react-router-dom';
 import Box from 'components/Box';
 import Loader from 'components/Loader';
-
+import SearchBox from 'components/SearchBox';
 const HourlyWeather = lazy(() => import('../../components/HourlyWeather'));
 const ThreeDaysWeather = lazy(() =>
   import('../../components/ThreeDaysWeather')
@@ -12,8 +13,15 @@ const RealTimeWeather = lazy(() => import('../../components/RealTimeWeather'));
 
 const WeatherDetails = () => {
   const [value, setValue] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleInputSubmit = value => {
+    setSearchParams(value !== '' ? { query: value } : '');
   };
 
   function a11yProps(index) {
@@ -34,11 +42,7 @@ const WeatherDetails = () => {
         aria-labelledby={`simple-tab-${index}`}
         {...other}
       >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <>{children}</>
-          </Box>
-        )}
+        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
       </div>
     );
   }
@@ -86,16 +90,17 @@ const WeatherDetails = () => {
           />
         </Tabs>
       </Box>
+      <SearchBox onSubmit={handleInputSubmit} />
       <Suspense fallback={<Loader />}>
         <Box as="main">
           <TabPanel value={value} index={0}>
-            <RealTimeWeather />
+            <RealTimeWeather query={query} />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <HourlyWeather />
+            <HourlyWeather query={query} />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <ThreeDaysWeather />
+            <ThreeDaysWeather query={query} />
           </TabPanel>
         </Box>
       </Suspense>
