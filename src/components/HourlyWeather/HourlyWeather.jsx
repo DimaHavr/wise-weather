@@ -34,7 +34,7 @@ const HourlyWeather = ({ query }) => {
   const { name } = cityName;
 
   useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(forecastArr));
+    window.localStorage.setItem('forecastArr', JSON.stringify(forecastArr));
   }, [forecastArr]);
 
   useEffect(() => {
