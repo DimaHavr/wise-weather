@@ -48,6 +48,7 @@ const RealTimeWeather = ({ query }) => {
         Notify.failure(
           'Sorry, there are no city matching your search query. Please try again.'
         );
+        setCityName('');
         setPreLoader(false);
       }
     };
