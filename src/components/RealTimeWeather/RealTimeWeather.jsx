@@ -30,49 +30,47 @@ const RealTimeWeather = ({ forecastArr }) => {
 
   return (
     <Box as="div">
-      {forecastArr && (
-        <Box display="flex" justifyContent="center" paddingBottom="30px">
-          <Container>
-            <ContentContainer>
-              <Title>{name}</Title>
+      <Box display="flex" justifyContent="center" paddingBottom="30px">
+        <Container>
+          <ContentContainer>
+            <Title>{name}</Title>
+            <TextItem>
+              <TimeIcon /> {localtime}
+            </TextItem>
+            <Box display="flex">
+              <img src={condition.icon} alt="" />
               <TextItem>
-                <TimeIcon /> {localtime}
+                {temp_c} <TempCelsiusIcon />
               </TextItem>
-              <Box display="flex">
-                <img src={condition.icon} alt="" />
-                <TextItem>
-                  {temp_c} <TempCelsiusIcon />
-                </TextItem>
-              </Box>
-              <TextItem>{condition.text}</TextItem>
-            </ContentContainer>
-            <DetailsContainer>
-              <TextItem>
-                <WindIcon /> {wind_kph}k/h
-              </TextItem>
-              <TextItem>
-                <BarometerIcon />
-                {pressure_mb}hPa
-              </TextItem>
-              <TextItem>
-                <RaindropsIcon />
-                {precip_mm}mm
-              </TextItem>
-              <TextItem>
-                <HumidityIcon />
-                {humidity}%
-              </TextItem>
-              <TextItem>
-                RealFeel: {feelslike_c} <TempCelsiusIcon />
-              </TextItem>
-              <TextItem>
-                <SunIcon />
-                {uv} of 10
-              </TextItem>
-            </DetailsContainer>
-          </Container>
-        </Box>
-      )}
+            </Box>
+            <TextItem>{condition.text}</TextItem>
+          </ContentContainer>
+          <DetailsContainer>
+            <TextItem>
+              <WindIcon /> {wind_kph}k/h
+            </TextItem>
+            <TextItem>
+              <BarometerIcon />
+              {pressure_mb}hPa
+            </TextItem>
+            <TextItem>
+              <RaindropsIcon />
+              {precip_mm}mm
+            </TextItem>
+            <TextItem>
+              <HumidityIcon />
+              {humidity}%
+            </TextItem>
+            <TextItem>
+              RealFeel: {feelslike_c} <TempCelsiusIcon />
+            </TextItem>
+            <TextItem>
+              <SunIcon />
+              {uv} of 10
+            </TextItem>
+          </DetailsContainer>
+        </Container>
+      </Box>
     </Box>
   );
 };
