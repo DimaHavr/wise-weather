@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/wise-weather/static/css/main.fe386b87.css",
-    "main.js": "/wise-weather/static/js/main.4f59dc73.js",
+    "main.js": "/wise-weather/static/js/main.65f831ff.js",
     "static/js/817.ed45534d.chunk.js": "/wise-weather/static/js/817.ed45534d.chunk.js",
     "static/js/93.5cb4cae2.chunk.js": "/wise-weather/static/js/93.5cb4cae2.chunk.js",
-    "static/js/220.96b56427.chunk.js": "/wise-weather/static/js/220.96b56427.chunk.js",
+    "static/js/220.fbe39e9a.chunk.js": "/wise-weather/static/js/220.fbe39e9a.chunk.js",
     "static/css/60.6680622b.chunk.css": "/wise-weather/static/css/60.6680622b.chunk.css",
-    "static/js/60.dcdda962.chunk.js": "/wise-weather/static/js/60.dcdda962.chunk.js",
+    "static/js/60.36afedf7.chunk.js": "/wise-weather/static/js/60.36afedf7.chunk.js",
     "static/css/702.6680622b.chunk.css": "/wise-weather/static/css/702.6680622b.chunk.css",
     "static/js/702.5e4b2c06.chunk.js": "/wise-weather/static/js/702.5e4b2c06.chunk.js",
     "static/js/754.54a8f993.chunk.js": "/wise-weather/static/js/754.54a8f993.chunk.js",
@@ -17,12 +17,12 @@
     "static/media/weather-bg.webp": "/wise-weather/static/media/weather-bg.a3d5b5e06f0b9d927483.webp",
     "index.html": "/wise-weather/index.html",
     "main.fe386b87.css.map": "/wise-weather/static/css/main.fe386b87.css.map",
-    "main.4f59dc73.js.map": "/wise-weather/static/js/main.4f59dc73.js.map",
+    "main.65f831ff.js.map": "/wise-weather/static/js/main.65f831ff.js.map",
     "817.ed45534d.chunk.js.map": "/wise-weather/static/js/817.ed45534d.chunk.js.map",
     "93.5cb4cae2.chunk.js.map": "/wise-weather/static/js/93.5cb4cae2.chunk.js.map",
-    "220.96b56427.chunk.js.map": "/wise-weather/static/js/220.96b56427.chunk.js.map",
+    "220.fbe39e9a.chunk.js.map": "/wise-weather/static/js/220.fbe39e9a.chunk.js.map",
     "60.6680622b.chunk.css.map": "/wise-weather/static/css/60.6680622b.chunk.css.map",
-    "60.dcdda962.chunk.js.map": "/wise-weather/static/js/60.dcdda962.chunk.js.map",
+    "60.36afedf7.chunk.js.map": "/wise-weather/static/js/60.36afedf7.chunk.js.map",
     "702.6680622b.chunk.css.map": "/wise-weather/static/css/702.6680622b.chunk.css.map",
     "702.5e4b2c06.chunk.js.map": "/wise-weather/static/js/702.5e4b2c06.chunk.js.map",
     "754.54a8f993.chunk.js.map": "/wise-weather/static/js/754.54a8f993.chunk.js.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.fe386b87.css",
-    "static/js/main.4f59dc73.js"
+    "static/js/main.65f831ff.js"
   ]
 }
