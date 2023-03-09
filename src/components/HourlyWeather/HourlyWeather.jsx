@@ -21,7 +21,7 @@ import {
 } from './HourlyWeather.styled';
 
 const HourlyWeather = ({ forecastArr }) => {
-  const { name } = forecastArr.location;
+  // const { name } = forecastArr.location;
   const [firstDay] = forecastArr.forecast.forecastday;
   return (
     <Box as="div">
@@ -53,7 +53,7 @@ const HourlyWeather = ({ forecastArr }) => {
                 <Box display="flex" justifyContent="center" marginBottom="40px">
                   <Container>
                     <ContentContainer>
-                      <Title>{name}</Title>
+                      <Title>{time}</Title>
                       <ContentContainer>
                         <TextItem>
                           <TimeIcon /> {time}

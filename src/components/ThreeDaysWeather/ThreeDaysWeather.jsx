@@ -19,7 +19,7 @@ import {
 } from './ThreeDaysWeather.styled';
 
 const ThreeDaysWeather = ({ forecastArr }) => {
-  const { name } = forecastArr.location;
+  // const { name } = forecastArr.location;
   return (
     <Box as="div">
       <Swiper
@@ -50,7 +50,7 @@ const ThreeDaysWeather = ({ forecastArr }) => {
                 <Box display="flex" justifyContent="center" marginBottom="40px">
                   <Container>
                     <ContentContainer>
-                      <Title>{name}</Title>
+                      <Title>{nammaxtemp_ce}</Title>
                       <TextItem>
                         <TimeIcon /> {date}
                       </TextItem>
