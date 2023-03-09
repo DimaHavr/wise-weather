@@ -50,7 +50,7 @@ const ThreeDaysWeather = ({ forecastArr }) => {
                 <Box display="flex" justifyContent="center" marginBottom="40px">
                   <Container>
                     <ContentContainer>
-                      <Title>{nammaxtemp_ce}</Title>
+                      <Title>{mintemp_c}</Title>
                       <TextItem>
                         <TimeIcon /> {date}
                       </TextItem>
