@@ -30,7 +30,7 @@ const RealTimeWeather = ({ forecastArr }) => {
 
   return (
     <Box as="div">
-      {name && (
+      {forecastArr && (
         <Box display="flex" justifyContent="center" paddingBottom="30px">
           <Container>
             <ContentContainer>
