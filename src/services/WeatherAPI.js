@@ -15,19 +15,4 @@ const fetchWeather = async query => {
   return response.data;
 };
 
-const fetchOneDayWeather = async query => {
-  const options = {
-    method: 'GET',
-    url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
-    params: { q: `${query}`, days: '1' },
-    headers: {
-      'X-RapidAPI-Key': 'a05c4ca72amshd6999f2c5f785e3p10aaa3jsnfe5969edd877',
-      'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
-    },
-  };
-
-  const response = await axios(options);
-  return response.data;
-};
-
-export { fetchWeather, fetchOneDayWeather };
+export { fetchWeather };

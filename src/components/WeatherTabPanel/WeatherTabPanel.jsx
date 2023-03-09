@@ -33,6 +33,8 @@ function WeatherTabPanel({ query }) {
           'Sorry, there are no city matching your search query. Please try again.'
         );
         setPreLoader(false);
+        setForecastArr([]);
+        localStorage.clear();
       }
     };
 
@@ -75,7 +77,7 @@ function WeatherTabPanel({ query }) {
         </Tabs>
       </Box>
       {preLoader && <Loader />}
-      {forecastArr && (
+      {forecastArr.location && (
         <Suspense fallback={<Loader />}>
           <TabPanel value={value} index={0}>
             <RealTimeWeather forecastArr={forecastArr} />

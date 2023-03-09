@@ -16,7 +16,7 @@ import {
 } from './RealTimeWeather.styled';
 
 const RealTimeWeather = ({ forecastArr }) => {
-  // const { name, localtime } = forecastArr.location;
+  const { name, localtime } = forecastArr.location;
   const {
     condition,
     wind_kph,
@@ -33,9 +33,9 @@ const RealTimeWeather = ({ forecastArr }) => {
       <Box display="flex" justifyContent="center" paddingBottom="30px">
         <Container>
           <ContentContainer>
-            <Title>{precip_mm}</Title>
+            <Title>{name}</Title>
             <TextItem>
-              <TimeIcon /> {precip_mm}
+              <TimeIcon /> {localtime}
             </TextItem>
             <Box display="flex">
               <img src={condition.icon} alt="" />

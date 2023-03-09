@@ -8,13 +8,13 @@ export const SearchBox = ({ onSubmit }) => {
   const handleSubmit = event => {
     if (query.trim() === '') {
       Notify.failure(
-        'Sorry, there are no city name matching your search query. Please try again.'
+        'The search query is empty, enter the name of the city...'
       );
-      return;
     }
     event.preventDefault();
     onSubmit(query);
     onReset(event);
+    localStorage.clear();
   };
 
   const onChangeInput = event => {
