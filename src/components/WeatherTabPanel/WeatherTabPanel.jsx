@@ -74,6 +74,7 @@ function WeatherTabPanel({ query }) {
           <Tab style={tabStyles} label="Three days" />
         </Tabs>
       </Box>
+      {preLoader && <Loader />}
       <Suspense fallback={<Loader />}>
         <TabPanel value={value} index={0}>
           <RealTimeWeather forecastArr={forecastArr} />
@@ -84,7 +85,6 @@ function WeatherTabPanel({ query }) {
         <TabPanel value={value} index={2}>
           <ThreeDaysWeather forecastArr={forecastArr} />
         </TabPanel>
-        {preLoader && <Loader />}
       </Suspense>
     </Box>
   );
