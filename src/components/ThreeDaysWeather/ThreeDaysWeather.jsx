@@ -1,10 +1,4 @@
-import { Notify } from 'notiflix';
-import { useState, useEffect } from 'react';
-
-import { fetchWeather } from 'services/WeatherAPI';
 import Box from 'components/Box';
-import Loader from 'components/Loader';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Lazy, Navigation } from 'swiper';
 import 'swiper/css';
@@ -24,38 +18,11 @@ import {
   Title,
 } from './ThreeDaysWeather.styled';
 
-const ThreeDaysWeather = ({ query }) => {
-  const [cityName, setCityName] = useState([]);
-  const [forecastArr, setForecastArr] = useState([]);
-  const [preLoader, setPreLoader] = useState(false);
-  const { name } = cityName;
-
-  useEffect(() => {
-    const getFetchWeather = async () => {
-      setPreLoader(true);
-      try {
-        const data = await fetchWeather(query);
-        setCityName(data.location);
-        setForecastArr(data.forecast.forecastday);
-        setPreLoader(false);
-      } catch (error) {
-        console.log(error);
-        Notify.failure(
-          'Sorry, there are no city matching your search query. Please try again.'
-        );
-        setPreLoader(false);
-      }
-    };
-    if (!query) {
-      return;
-    }
-    getFetchWeather();
-  }, [query]);
-
+const ThreeDaysWeather = ({ forecastArr }) => {
+  const { name } = forecastArr.location;
   return (
     <Box as="div">
-      {preLoader && <Loader />}
-      {name && (
+      {forecastArr && (
         <Swiper
           modules={[Lazy, Navigation]}
           slidesPerView={1}
@@ -66,7 +33,7 @@ const ThreeDaysWeather = ({ query }) => {
           centeredSlides={true}
           spaceBetween={30}
         >
-          {forecastArr.map(
+          {forecastArr.forecast.forecastday.map(
             ({
               day: {
                 condition,

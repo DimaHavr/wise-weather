@@ -1,8 +1,4 @@
-import { Notify } from 'notiflix';
-import { useState, useEffect } from 'react';
-import { fetchWeather } from 'services/WeatherAPI';
 import Box from 'components/Box';
-import Loader from 'components/Loader';
 
 import {
   TimeIcon,
@@ -19,11 +15,8 @@ import {
   Title,
 } from './RealTimeWeather.styled';
 
-const RealTimeWeather = ({ query }) => {
-  const [cityName, setCityName] = useState([]);
-  const [forecastArr, setForecastArr] = useState([]);
-  const [preLoader, setPreLoader] = useState(false);
-  const { name, localtime } = cityName;
+const RealTimeWeather = ({ forecastArr }) => {
+  const { name, localtime } = forecastArr.location;
   const {
     condition,
     wind_kph,
@@ -33,34 +26,10 @@ const RealTimeWeather = ({ query }) => {
     uv,
     humidity,
     feelslike_c,
-  } = forecastArr;
-
-  useEffect(() => {
-    const getFetchWeather = async () => {
-      setPreLoader(true);
-      try {
-        const data = await fetchWeather(query);
-        setCityName(data.location);
-        setForecastArr(data.current);
-        setPreLoader(false);
-      } catch (error) {
-        console.log(error);
-        Notify.failure(
-          'Sorry, there are no city matching your search query. Please try again.'
-        );
-        setCityName('');
-        setPreLoader(false);
-      }
-    };
-    if (!query) {
-      return;
-    }
-    getFetchWeather();
-  }, [query]);
+  } = forecastArr.current;
 
   return (
     <Box as="div">
-      {preLoader && <Loader />}
       {name && (
         <Box display="flex" justifyContent="center" paddingBottom="30px">
           <Container>

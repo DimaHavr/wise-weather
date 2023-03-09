@@ -6,7 +6,7 @@ export const Wrapper = styled.form`
   justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: 20px;
+  padding: 30px 0 10px 0;
   position: relative;
   z-index: 1;
 `;

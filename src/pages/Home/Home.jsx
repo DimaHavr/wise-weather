@@ -1,14 +1,24 @@
+import { useSearchParams } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Loader from 'components/Loader';
 import Box from 'components/Box';
+import SearchBox from 'components/SearchBox';
 
-const WeatherDetails = lazy(() => import('../../components/WeatherDetails'));
+const WeatherTabPanel = lazy(() => import('../../components/WeatherTabPanel'));
 
 const Home = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
+
+  const handleInputSubmit = value => {
+    setSearchParams(value !== '' ? { query: value } : '');
+  };
+
   return (
     <Box>
+      <SearchBox onSubmit={handleInputSubmit} />
       <Suspense fallback={<Loader />}>
-        <WeatherDetails />
+        <WeatherTabPanel query={query} />
       </Suspense>
     </Box>
   );

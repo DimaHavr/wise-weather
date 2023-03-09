@@ -1,9 +1,4 @@
-import { Notify } from 'notiflix';
-import { useState, useEffect } from 'react';
-import { fetchOneDayWeather } from 'services/WeatherAPI';
 import Box from 'components/Box';
-import Loader from 'components/Loader';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Lazy, Navigation } from 'swiper';
 import 'swiper/css';
@@ -25,44 +20,11 @@ import {
   Title,
 } from './HourlyWeather.styled';
 
-const HourlyWeather = ({ query }) => {
-  const [cityName, setCityName] = useState([]);
-  const [preLoader, setPreLoader] = useState(false);
-  const [forecastArr, setForecastArr] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('forecastArr')) ?? [];
-  });
-  const { name } = cityName;
-
-  useEffect(() => {
-    window.localStorage.setItem('forecastArr', JSON.stringify(forecastArr));
-  }, [forecastArr]);
-
-  useEffect(() => {
-    const getFetchWeather = async () => {
-      setPreLoader(true);
-      try {
-        const data = await fetchOneDayWeather(query);
-        setCityName(data.location);
-        setForecastArr(data.forecast.forecastday);
-        setPreLoader(false);
-      } catch (error) {
-        console.log(error);
-        Notify.failure(
-          'Sorry, there are no city matching your search query. Please try again.'
-        );
-        setPreLoader(false);
-      }
-    };
-    if (!query) {
-      return;
-    }
-    getFetchWeather();
-  }, [query]);
-
+const HourlyWeather = ({ forecastArr }) => {
+  const { name } = forecastArr.location;
   return (
     <Box as="div">
-      {preLoader && <Loader />}
-      {name && (
+      {forecastArr && (
         <Swiper
           modules={[Lazy, Navigation]}
           slidesPerView={1}
@@ -73,7 +35,7 @@ const HourlyWeather = ({ query }) => {
           centeredSlides={true}
           spaceBetween={30}
         >
-          {forecastArr.map(({ hour }) => {
+          {forecastArr.forecast.forecastday.map(({ hour }) => {
             return hour.map(
               ({
                 time,

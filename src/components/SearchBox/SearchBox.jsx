@@ -3,25 +3,26 @@ import { Wrapper, Input, Button, SearchIcon } from './SearchBox.styled';
 import { Notify } from 'notiflix';
 
 export const SearchBox = ({ onSubmit }) => {
-  const [cityName, setCityName] = useState('');
+  const [query, setQuery] = useState('');
 
   const handleSubmit = event => {
-    if (cityName.trim() === '') {
+    if (query.trim() === '') {
       Notify.failure(
         'Sorry, there are no city name matching your search query. Please try again.'
       );
+      return;
     }
     event.preventDefault();
-    onSubmit(cityName);
+    onSubmit(query);
     onReset(event);
   };
 
   const onChangeInput = event => {
-    setCityName(event.target.value);
+    setQuery(event.target.value);
   };
 
   const onReset = event => {
-    setCityName('');
+    setQuery('');
     event.target.reset();
   };
 
@@ -30,7 +31,7 @@ export const SearchBox = ({ onSubmit }) => {
       <Input
         type="text"
         placeholder="Search city..."
-        value={cityName}
+        value={query}
         onChange={onChangeInput}
       />
       <Button type="submit">
