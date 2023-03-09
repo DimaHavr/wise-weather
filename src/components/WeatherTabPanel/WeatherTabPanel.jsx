@@ -76,19 +76,22 @@ function WeatherTabPanel({ query }) {
           <Tab style={tabStyles} label="Three days" />
         </Tabs>
       </Box>
-      {preLoader && <Loader />}
-      {forecastArr.location && (
-        <Suspense fallback={<Loader />}>
-          <TabPanel value={value} index={0}>
-            <RealTimeWeather forecastArr={forecastArr} />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <HourlyWeather forecastArr={forecastArr} />
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <ThreeDaysWeather forecastArr={forecastArr} />
-          </TabPanel>
-        </Suspense>
+      {preLoader ? (
+        <Loader />
+      ) : (
+        forecastArr.location && (
+          <Suspense fallback={<Loader />}>
+            <TabPanel value={value} index={0}>
+              <RealTimeWeather forecastArr={forecastArr} />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <HourlyWeather forecastArr={forecastArr} />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <ThreeDaysWeather forecastArr={forecastArr} />
+            </TabPanel>
+          </Suspense>
+        )
       )}
     </Box>
   );
