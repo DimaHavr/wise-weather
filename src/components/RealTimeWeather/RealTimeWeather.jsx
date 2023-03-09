@@ -15,8 +15,8 @@ import {
   Title,
 } from './RealTimeWeather.styled';
 
-const RealTimeWeather = ({ forecastArr }) => {
-  const { name, localtime } = forecastArr.location;
+const RealTimeWeather = ({ forecastArr: { location, current } }) => {
+  const { name, localtime } = location;
   const {
     condition,
     wind_kph,
@@ -26,7 +26,7 @@ const RealTimeWeather = ({ forecastArr }) => {
     uv,
     humidity,
     feelslike_c,
-  } = forecastArr.current;
+  } = current;
 
   return (
     <Box as="div">
