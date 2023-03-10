@@ -14,7 +14,6 @@ export const SearchBox = ({ onSubmit }) => {
     event.preventDefault();
     onSubmit(query);
     onReset(event);
-    localStorage.clear();
   };
 
   const onChangeInput = event => {

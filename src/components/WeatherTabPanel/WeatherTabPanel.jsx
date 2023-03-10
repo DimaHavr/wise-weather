@@ -12,13 +12,7 @@ const RealTimeWeather = lazy(() => import('../RealTimeWeather'));
 function WeatherTabPanel({ query }) {
   const [value, setValue] = useState(0);
   const [preLoader, setPreLoader] = useState(false);
-  const [forecastArr, setForecastArr] = useState(
-    () => JSON.parse(window.localStorage.getItem('forecastArr')) ?? []
-  );
-
-  useEffect(() => {
-    window.localStorage.setItem('forecastArr', JSON.stringify(forecastArr));
-  }, [forecastArr]);
+  const [forecastArr, setForecastArr] = useState([]);
 
   useEffect(() => {
     const getFetchWeather = async () => {
