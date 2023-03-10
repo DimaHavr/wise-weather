@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/wise-weather/static/css/main.fe386b87.css",
-    "main.js": "/wise-weather/static/js/main.9829ff3a.js",
-    "static/js/817.9245a681.chunk.js": "/wise-weather/static/js/817.9245a681.chunk.js",
+    "main.js": "/wise-weather/static/js/main.ef1979df.js",
+    "static/js/817.0d45d14b.chunk.js": "/wise-weather/static/js/817.0d45d14b.chunk.js",
     "static/js/93.5cb4cae2.chunk.js": "/wise-weather/static/js/93.5cb4cae2.chunk.js",
-    "static/js/220.52054543.chunk.js": "/wise-weather/static/js/220.52054543.chunk.js",
+    "static/js/220.27ee3456.chunk.js": "/wise-weather/static/js/220.27ee3456.chunk.js",
     "static/css/60.6680622b.chunk.css": "/wise-weather/static/css/60.6680622b.chunk.css",
     "static/js/60.364870ae.chunk.js": "/wise-weather/static/js/60.364870ae.chunk.js",
     "static/css/702.6680622b.chunk.css": "/wise-weather/static/css/702.6680622b.chunk.css",
@@ -17,10 +17,10 @@
     "static/media/weather-bg.webp": "/wise-weather/static/media/weather-bg.a3d5b5e06f0b9d927483.webp",
     "index.html": "/wise-weather/index.html",
     "main.fe386b87.css.map": "/wise-weather/static/css/main.fe386b87.css.map",
-    "main.9829ff3a.js.map": "/wise-weather/static/js/main.9829ff3a.js.map",
-    "817.9245a681.chunk.js.map": "/wise-weather/static/js/817.9245a681.chunk.js.map",
+    "main.ef1979df.js.map": "/wise-weather/static/js/main.ef1979df.js.map",
+    "817.0d45d14b.chunk.js.map": "/wise-weather/static/js/817.0d45d14b.chunk.js.map",
     "93.5cb4cae2.chunk.js.map": "/wise-weather/static/js/93.5cb4cae2.chunk.js.map",
-    "220.52054543.chunk.js.map": "/wise-weather/static/js/220.52054543.chunk.js.map",
+    "220.27ee3456.chunk.js.map": "/wise-weather/static/js/220.27ee3456.chunk.js.map",
     "60.6680622b.chunk.css.map": "/wise-weather/static/css/60.6680622b.chunk.css.map",
     "60.364870ae.chunk.js.map": "/wise-weather/static/js/60.364870ae.chunk.js.map",
     "702.6680622b.chunk.css.map": "/wise-weather/static/css/702.6680622b.chunk.css.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.fe386b87.css",
-    "static/js/main.9829ff3a.js"
+    "static/js/main.ef1979df.js"
   ]
 }
