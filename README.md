@@ -1,5 +1,5 @@
 <a href='https://dimahavr.github.io/wise-weather/' target="_blank" rel="noopener noreferrer nofollow">
-Wise-Weather</a>
+Live page</a>
 
 EN:
 </br>
